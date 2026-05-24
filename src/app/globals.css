@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-surface text-ink antialiased;
+}
+
+/* Page shell: light grid + soft wash */
+.ms-page {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgb(219 234 254 / 0.45), transparent 55%),
+    linear-gradient(rgb(15 23 42 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(15 23 42 / 0.035) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
+  background-position: center top, center top, center top;
+}
+
+/* legacy class kept for any other views */
+.ms-grid-bg {
+  background-image:
+    linear-gradient(rgb(15 23 42 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(15 23 42 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}
