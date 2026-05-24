@@ -1,4 +1,15 @@
 import { NextResponse } from "next/server";
+
+/** Cron send-reminders is disabled. Uncomment the block below and remove this handler to re-enable. */
+export async function GET() {
+  return NextResponse.json(
+    { ok: false, error: "Cron send-reminders is temporarily disabled." },
+    { status: 503 },
+  );
+}
+
+/*
+import { NextResponse } from "next/server";
 import { readSubscriptions, writeSubscriptions } from "@/lib/subscriptions-store";
 import {
   buildCombinedReminderBody,
@@ -16,11 +27,6 @@ function authorize(req: Request): boolean {
   return url.searchParams.get("secret") === secret;
 }
 
-/**
- * Run on a schedule (e.g. hourly). Sends **one SMS per subscription** per tick when
- * any boss schedule is due; bosses that share the same local weekday + time are
- * listed together in that message. Marks each due schedule as sent for that local day.
- */
 export async function GET(req: Request) {
   if (!authorize(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
@@ -60,3 +66,4 @@ export async function GET(req: Request) {
 
   return NextResponse.json({ ok: true, at: now.toISOString(), results });
 }
+*/

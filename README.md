@@ -73,6 +73,8 @@ curl -X POST "http://localhost:3000/api/cron/test-sms" ^
 
 ### Weekly reminders
 
+**In this repo, scheduled cron routes are temporarily stubbed** (`503` from `/api/cron/*`) and `vercel.json` has no `crons` entry. To turn them back on, restore `vercel.json` and uncomment the handlers in `src/app/api/cron/send-reminders/route.ts` and `test-sms/route.ts`.
+
 The app sends **at most one SMS per boss schedule per local calendar day** when:
 
 - the subscriber’s **local weekday** matches that schedule’s chosen day, and  

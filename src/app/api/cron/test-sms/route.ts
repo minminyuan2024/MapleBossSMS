@@ -1,4 +1,15 @@
 import { NextResponse } from "next/server";
+
+/** Cron test-sms is disabled. Uncomment the block below and remove this handler to re-enable. */
+export async function POST() {
+  return NextResponse.json(
+    { ok: false, error: "Cron test-sms is temporarily disabled." },
+    { status: 503 },
+  );
+}
+
+/*
+import { NextResponse } from "next/server";
 import { subscribeSchema } from "@/lib/validation";
 import { sendBossReminderSms } from "@/lib/sms";
 
@@ -11,7 +22,6 @@ function authorize(req: Request): boolean {
   return url.searchParams.get("secret") === secret;
 }
 
-/** Optional: verify Twilio wiring with a one-off test message. */
 export async function POST(req: Request) {
   if (!authorize(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
@@ -43,3 +53,4 @@ export async function POST(req: Request) {
   }
   return NextResponse.json({ ok: true });
 }
+*/
